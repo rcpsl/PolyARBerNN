@@ -59,11 +59,11 @@ d) Call the solver which takes as parameters the number of variables, the box, t
 solver = PolyInequalitySolver(num_vars, boxx, pregion, orders)
 
 
-d) Add the multivariate polynomial constraint, i.e., poly <= 0, to our solver PolyARBerNN:
+e) Add the multivariate polynomial constraint, i.e., poly <= 0, to our solver PolyARBerNN:
 
    solver.addPolyInequalityConstraint(poly)
 
-e) Run the solver:
+f) Run the solver:
 
    res=solver.solve()   
 
