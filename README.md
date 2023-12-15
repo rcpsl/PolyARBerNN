@@ -26,7 +26,7 @@ The tool was written for Python 3.7.6. Earlier versions may be sufficient, but n
 
 3. Solver
 -----------------
-PolyAR is capable of solving a general multivariate polynomial constraints defined over a box.
+PolyARBerNN is capable of solving a general multivariate polynomial constraints defined over a box using a neural network guided abstraction refinement procedure. The NN model used for the abtraction refinement is located in the "model" folder.
 
 a) Define the box:
 
@@ -50,12 +50,16 @@ b) Define the multivariate polynomial:
     {'coeff':2,    'vars':[{'power':0},{'power':0}]}
     ]
 
-c) Call the solver which takes as parameters the number of variables and the box, num_vars, and pregion:
+c) Define the orders for this polynomial: the maximum powers that x and y can take:
 
-solver = PolyInequalitySolver(num_vars, pregion)
+orders = [[2, 2]]
+
+d) Call the solver which takes as parameters the number of variables, the box, the region, and the orders: num_vars, boxx, pregion, orders:
+
+solver = PolyInequalitySolver(num_vars, boxx, pregion, orders)
 
 
-d) Add the multivariate polynomial constraint, i.e., poly <= 0, to our solver PolyAR:
+d) Add the multivariate polynomial constraint, i.e., poly <= 0, to our solver PolyARBerNN:
 
    solver.addPolyInequalityConstraint(poly)
 
@@ -64,7 +68,7 @@ e) Run the solver:
    res=solver.solve()   
 
 
-All these steps can be found in the main section of the code PolyAR.py.
+All these steps can be found in the main section of the code PolyARBerNN.py.
 
   
 3. Running the code
